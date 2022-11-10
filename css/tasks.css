@@ -1,0 +1,28 @@
+
+.js-tasks {
+  display: grid;
+  margin-right: 40px; 
+}
+
+.js-done {
+  background-color: green;
+  color: white;
+  max-width: 30px; 
+  max-height: 25px;
+
+}
+
+.js-remove {
+  background-color: red;
+  max-width: 30px;
+  max-height: 25px;
+  order: 1;  
+}
+
+.new__task {
+ display: grid;
+ grid-template-columns: 1fr 20fr 1fr;
+ padding: 10px ;
+ border-bottom: 2px solid rgba(244, 230, 230, 0.938);
+ margin-bottom: 10px;
+}

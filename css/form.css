@@ -1,0 +1,13 @@
+.js-form {
+  padding: 0px 20px 20px 20px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 20px;
+}
+
+.form__button {
+  background-color: teal;
+     color: white;
+     border: none;
+     padding: 8px;
+}
