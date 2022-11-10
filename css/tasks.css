@@ -26,3 +26,40 @@
  border-bottom: 2px solid rgba(244, 230, 230, 0.938);
  margin-bottom: 10px;
 }
+
+
+
+
+@media (max-width: 767px) {
+  .js-done {
+
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .js-remove {
+
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    margin-left: 10px;
+    
+    
+    
+    
+   
+  }
+}
+
+
+    
+    
+
+    
+    
+
+    

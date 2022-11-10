@@ -11,3 +11,17 @@
      border: none;
      padding: 8px;
 }
+
+@media (max-width: 767px) {
+  .js-form {
+      display: flex;
+      flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .js-form__button {
+      width: 100%;
+      
+  }
+}
