@@ -1,8 +1,12 @@
 {
   const tasks = [];
 
-
- 
+   /* czyści input i ustawia focus */
+  
+   const cleanInput = () => {
+    document.querySelector(".js-newTask").value = "";
+    document.querySelector(".js-newTask").focus();
+};
 
   /* dodaje nowe zadanie bez done i odpala render */
 
@@ -80,6 +84,8 @@
     }
 
     addNewTask(newTaskContent);
+
+    cleanInput();
 
     
 
