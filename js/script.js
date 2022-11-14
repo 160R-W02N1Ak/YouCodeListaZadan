@@ -1,12 +1,13 @@
 {
   const tasks = [];
 
-   /* czyści input i ustawia focus */
-  
-   const cleanInput = () => {
+  /* czyści input i ustawia focus */
+
+  const cleanInput = () => {
     document.querySelector(".js-newTask").value = "";
     document.querySelector(".js-newTask").focus();
-};
+  };
+
 
   /* dodaje nowe zadanie bez done i odpala render */
 
@@ -40,7 +41,7 @@
       });
     });
 
-    const toggleDoneButtons = document.querySelectorAll(".js-done");
+    const toggleDoneButtons = document.querySelectorAll(".js-toggleDone");
 
     toggleDoneButtons.forEach((toggleDoneButton, index) => {
       toggleDoneButton.addEventListener("click", () => {
@@ -57,10 +58,15 @@
 
     for (const task of tasks) {
       htmlString += `
-      <li class="new__task">
-      <button class="js-done">${task.done ? " ✓" : ""}</button>
-      <button class="js-remove">🗑</button>
-      ${task.content }
+      <li class="new__task js-tasks">
+
+      <button class="tasks__button tasks__button--toggleDone js-toggleDone">${task.done ? " ✓" : ""}</button>
+
+
+      <span class="tasks__content${task.done ? " tasks__content--done" : ""}">${task.content}</span>
+
+      <button class="tasks__button tasks__button--remove js-remove">🗑</button>
+      
       </li>
       
       `;
@@ -72,7 +78,7 @@
   };
 
 
-/* pobiera treść formularza */
+  /* pobiera treść formularza */
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -87,13 +93,13 @@
 
     cleanInput();
 
-    
+
 
 
   };
 
-  
-/* funkcja init  */
+
+  /* funkcja init  */
   const init = () => {
     render();
 

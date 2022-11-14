@@ -1,9 +1,10 @@
 .body {
-  background-color: rgba(244, 230, 230, 0.938);
+  background-color: #eee;
   font-family: lato, sans-serif;
+  max-width: 900px;
+  padding: 20px;
   margin: 0 auto;
-  max-width: 1000px;
-  padding: 20px; 
   word-break: break-word;
+  display: block;
 }
 

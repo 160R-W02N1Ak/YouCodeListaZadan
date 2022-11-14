@@ -1,8 +1,8 @@
 
-
 .section {
   background-color: white;
-  margin: 10px 0 ;
+  margin: 10px 0;
+  box-shadow: 0 0 5px #ddd;
 }
 
 

@@ -1,27 +1,32 @@
 .js-form {
-  padding: 0px 20px 20px 20px;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-gap: 20px;
 }
 
-.form__button {
-  background-color: teal;
-     color: white;
-     border: none;
-     padding: 8px;
-}
-
-@media (max-width: 767px) {
+@media(max-width: 767px){
   .js-form {
-      display: flex;
-      flex-wrap: wrap;
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 767px) {
-  .js-form__button {
-      width: 100%;
-      
-  }
+.js-newTask {
+  padding: 10px;
+  border: 1px solid #ddd;
 }
+
+.form__button {
+  padding: 10px;
+  background: hsl(180, 100%, 25%);
+  color: white;
+  border: none;    /* usuwa domyślną ramke,która staro wygląda*/
+}
+
+.form__button:hover {
+  background: hsl(180, 100%, 30%);
+}
+
+.form__button:active {
+  background: hsl(180, 100%, 35%);
+}
+
