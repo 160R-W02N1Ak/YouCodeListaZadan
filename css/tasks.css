@@ -27,12 +27,13 @@
 /* Przycisk dodawania*/
 
 .tasks__button {
-  background-color: hsl(120, 61%, 34%);
+  background: hsl(120, 61%, 34%);
   border: none;
   color: white;
   width: 30px;
   height: 30px;
   padding: 0;
+  transition: background 0.3s;
 }
 
 .tasks__button--toggleDone {
@@ -51,6 +52,7 @@
 
 .tasks__button--remove {
   background: hsl(348, 83%, 47%);
+  transition: background 0.3s;
 }
 
 .tasks__button--remove:hover {
