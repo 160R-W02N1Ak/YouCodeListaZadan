@@ -2,34 +2,13 @@
   let tasks = [];
   let hideDoneTasks = false;
 
-  /* czyści input i ustawia focus */
 
   const cleanInput = () => {
     document.querySelector(".js-newTask").value = "";
     document.querySelector(".js-newTask").focus();
-  };
-
-
-  /* dodaje nowe zadanie bez done i odpala render */
-
-  /*const addNewTask = (newTaskContent) => {
-    tasks.push({
-      content: newTaskContent,
-    });
-    }; wersja przed immutability */
-
-  const addNewTask = (newTaskContent) => {
-    tasks = [...tasks, { content: newTaskContent }];
     render();
   };
 
-
-
-  /*  dostaje index z zadania i za pomoca splice usuwa zadanie + render*/
-
-  /*const removeTask = (taskIndex) => {
-    tasks.splice(taskIndex, 1);
-    }  wersja przed immutability */
 
   const removeTask = (taskIndex) => {
     tasks = [
@@ -39,13 +18,6 @@
     render();
   };
 
-
-
-  /* dostaje index i zmienia wartosc done + render */
-
-  /*const toggleTaskDone = (taskIndex) => {
-    tasks[taskIndex].done = !tasks[taskIndex].done;
-    } wersja przed immutability */
 
   const toggleTaskDone = (taskIndex) => {
     tasks = [
@@ -58,6 +30,28 @@
     ];
     render();
   };
+
+
+  const addNewTask = (newTaskContent) => {
+    tasks = [...tasks, { content: newTaskContent }];
+    render();
+  };
+
+  const markAllTasksDone = () => {
+    tasks = tasks.map((task) => ({
+      ...task,
+      done: true,
+    }));
+
+    render();
+  };
+
+
+
+
+  
+
+  
 
   /* przyciski */
   const bindEvents = () => {
@@ -76,8 +70,7 @@
     });
   }
 
-  /* renderuje zawartosc html  */
-  const render = () => {
+  const renderTasks = () => {
     let htmlString = "";
     for (const task of tasks) {
       htmlString += `
@@ -89,7 +82,22 @@
       `;
     }
     document.querySelector(".js-tasks").innerHTML = htmlString;
+  };
+
+  const renderButtons = () => {};
+
+  const bindButtonsEvents = () => {};
+
+  
+  const render = () => {
+
+    renderTasks();
+    renderButtons();
+    
     bindEvents();
+    /*bindToggleDoneEvents();*/
+    bindButtonsEvents();
+
   };
 
 
