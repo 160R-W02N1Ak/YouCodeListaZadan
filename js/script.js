@@ -46,6 +46,14 @@
     render();
   };
 
+  const toggleHideDoneTasks = () => {
+    hideDoneTasks = !hideDoneTasks;
+    render();
+  };
+
+  
+
+
 
 
 
