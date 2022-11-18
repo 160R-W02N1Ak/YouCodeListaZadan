@@ -51,61 +51,105 @@
     render();
   };
 
-  
 
 
 
 
 
-  
 
-  
 
-  /* przyciski */
-  const bindEvents = () => {
+
+
+  /*Remove events */
+  const bindRemoveEvents = () => {
     const removeButtons = document.querySelectorAll(".js-remove");
-    removeButtons.forEach((removeButton, index) => {
+
+    removeButtons.forEach((removeButton, taskIndex) => {
       removeButton.addEventListener("click", () => {
-        removeTask(index);
+        removeTask(taskIndex);
       });
     });
-
-    const toggleDoneButtons = document.querySelectorAll(".js-toggleDone");
-    toggleDoneButtons.forEach((toggleDoneButton, index) => {
-      toggleDoneButton.addEventListener("click", () => {
-        toggleTaskDone(index);
-      });
-    });
-  }
-
-  const renderTasks = () => {
-    let htmlString = "";
-    for (const task of tasks) {
-      htmlString += `
-      <li class="new__task js-tasks">
-      <button class="tasks__button tasks__button--toggleDone js-toggleDone">${task.done ? " ✓" : ""}</button>
-      <span class="tasks__content${task.done ? " tasks__content--done" : ""}">${task.content}</span>
-      <button class="tasks__button tasks__button--remove js-remove">🗑</button>
-      </li>
-      `;
-    }
-    document.querySelector(".js-tasks").innerHTML = htmlString;
   };
 
-  const renderButtons = () => {};
+    const bindToggleDoneEvents = () => {
+      const toggleDoneButtons = document.querySelectorAll(".js-toggleDone");
+    toggleDoneButtons.forEach((toggleDoneButton, taskIndex) => {
+      toggleDoneButton.addEventListener("click", () => {
+        toggleTaskDone(taskIndex);
+      });
+    });
+    };
+  
+  
 
-  const bindButtonsEvents = () => {};
+  const renderTasks = () => {
+    const taskToHTML = task => `
+      <li class="
+       new__task js-tasks${task.done && hideDoneTasks ? " tasks__item--hidden" : ""} 
+      ">
 
+      <button class="tasks__button tasks__button--toggleDone js-toggleDone">
+        ${task.done ? " ✓" : ""}
+        </button>
+      <span class="tasks__content${ task.done ? " tasks__content--done" : ""}">
+      ${task.content}
+      </span>
+      <button class="tasks__button tasks__button--remove js-remove">
+        🗑
+        </button>
+      </li>
+      `
+    
+    const taskElement = document.querySelector(".js-tasks");
+    taskElement.innerHTML = tasks.map(taskToHTML).join("");
+  };
+
+  const renderButtons = () => {
+    const buttonsElement = document.querySelector(".js-buttons");
+
+    if (!tasks.length) {
+      buttonsElement.innerHTML = "";
+      return;
+    }
+
+    buttonsElement.innerHTML = `
+      <button class="buttons__button js-toggleHideDoneTasks">
+        ${hideDoneTasks ? "Pokaz" : "Ukryj"} ukończone
+      </button>
+      <button class="buttons__button js-markAllDone"
+        ${ tasks.every(({ done }) => done) ? " disabled " : ""}
+      >
+      Ukończ wszystkie
+      </button>
+    `;
+  };
+
+
+
+    const bindButtonsEvents = () => {
+      const markAllDoneButton = document.querySelector(".js-markAllDone");
+  
+      if (markAllDoneButton) {
+        markAllDoneButton.addEventListener("click", markAllTasksDone);
+      }
+  
+      const toggleHideDoneTasksButton = document.querySelector(".js-toggleHideDoneTasksButton");
+  
+      if (toggleHideDoneTasksButton) {
+        toggleHideDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
+      } 
+    };
+  
   
   const render = () => {
 
     renderTasks();
-    renderButtons();
-    
-    bindEvents();
-    /*bindToggleDoneEvents();*/
-    bindButtonsEvents();
+    bindRemoveEvents();
+    bindToggleDoneEvents();
 
+    renderButtons();
+    bindButtonsEvents();
+   
   };
 
 
@@ -122,6 +166,7 @@
   };
 
 
+
   /* funkcja init  */
   const init = () => {
     render();
@@ -131,4 +176,5 @@
     form.addEventListener("submit", onFormSubmit);
   };
   init();
+
 }
