@@ -6,12 +6,10 @@
  align-items: center;
  grid-gap: 20px;
  padding: 20px;;
- 
- 
 }
 
 
-.header__title {
+.section__header__title {
   margin: 0;
   text-decoration: solid;
   font-size: 20px;

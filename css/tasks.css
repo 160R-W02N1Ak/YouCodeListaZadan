@@ -1,5 +1,4 @@
-
-.js-tasks {
+.tasksList {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -21,8 +20,6 @@
 .tasks__content--done {
   text-decoration: line-through;
 }
-
-
 
 /* Przycisk dodawania*/
 
